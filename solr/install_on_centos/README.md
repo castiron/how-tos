@@ -92,7 +92,7 @@ rm -rf /var/lib/tomcat7/lib/slf4j-android-*.jar
 
 ```
 cd /etc/init.d
-wget https://gist.githubusercontent.com/zdavis/87313b787f9a5074d58c/raw/fb8243a573fcd63628db621628302de34533e7ca/tomcat7
+wget https://gist.githubusercontent.com/lthurston/c7b1812fcc025a154147/raw/fbb8023e39e90d3028680c6b2ffecf1681ceb6a8/tomcat7
 chmod 755 tomcat7
 ```
 
@@ -118,6 +118,18 @@ chown -R tomcat:tomcat /home/solr
 ```
 service tomcat7 start
 service tomcat7 stop
+```
+
+#### Chkconfig sauce
+```
+chkconfig --add tomcat7
+```
+
+Check for runlevels 2 - 5:
+
+```
+chkconfig --list tomcat7
+tomcat7        	0:off	1:off	2:on	3:on	4:on	5:on	6:off
 ```
 
 #### Put the correct configuration in place for Solr

@@ -109,6 +109,17 @@ service tomcat7 start
 service tomcat7 stop
 ```
 
+#### .d zest
+
+```
+update-rc.d apache2 defaults
+```
+
+Confirm flavor of the zest by looking for: [+] 
+
+```
+service --status-all | grep 'tomcat7'
+```
 
 #### Put the correct configuration in place for Solr
 

@@ -69,10 +69,10 @@ alternatives --set jar /usr/java/jdk1.7.0_60/bin/jar
 
 ```
 cd /opt
-wget http://apache.mesi.com.ar/tomcat/tomcat-7/v7.0.54/bin/apache-tomcat-7.0.54.tar.gz
-tar -xzf apache-tomcat-7.0.54.tar.gz
-rm apache-tomcat-7.0.54.tar.gz
-mv apache-tomcat-7.0.54 /var/lib/tomcat7
+wget http://apache.mesi.com.ar/tomcat/tomcat-7/v7.0.54/bin/apache-tomcat-7.0.55.tar.gz
+tar -xzf apache-tomcat-7.0.55.tar.gz
+rm apache-tomcat-7.0.55.tar.gz
+mv apache-tomcat-7.0.55 /var/lib/tomcat7
 ```
 
 #### Get Solr logging dependencies
@@ -97,6 +97,8 @@ chmod 755 tomcat7
 ```
 
 #### Install Solr with modified TYPO3 Solr install script
+
+Note that this may throw a few errors, but you should be able to ignore them:
 
 ```
 cd /home
@@ -138,6 +140,7 @@ tomcat7        	0:off	1:off	2:on	3:on	4:on	5:on	6:off
 cd /var/lib/tomcat7/webapps/solr/WEB-INF
 mv web.xml web.xml.off
 wget https://raw.githubusercontent.com/castiron/dockers/master/typo3-solr/config/web.xml
+chown tomcat:tomcat web.xml
 ```
 
 #### Start tomcat7

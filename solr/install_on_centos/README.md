@@ -69,7 +69,7 @@ alternatives --set jar /usr/java/jdk1.7.0_60/bin/jar
 
 ```
 cd /opt
-wget http://apache.mesi.com.ar/tomcat/tomcat-7/v7.0.54/bin/apache-tomcat-7.0.55.tar.gz
+wget http://apache.mesi.com.ar/tomcat/tomcat-7/v7.0.55/bin/apache-tomcat-7.0.55.tar.gz
 tar -xzf apache-tomcat-7.0.55.tar.gz
 rm apache-tomcat-7.0.55.tar.gz
 mv apache-tomcat-7.0.55 /var/lib/tomcat7

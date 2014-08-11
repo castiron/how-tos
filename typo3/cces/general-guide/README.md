@@ -40,10 +40,10 @@ Showitem syntax is documented further [here](../../tca/showitem-syntax/README.md
 There are a few approaches to deciding which fields to use in the 'ui' variable, and the best one to use depends on your circumstances:
 
 |Level of complexity|Scenario|Approach|
-|-|--------|--------|
-|1|You only need a few fields in your CCE, and they are standard items like a link, a media element, a header, etc.|Use already-existing columns from generic `tt_content` rows to fit your needs. You can provide custom titles for them using showitem syntax. This saves you from needing to modify the database at all. <br><br> *Caveat:* If you're going to need to refer to one of the fields from another element (Another CCE, whatever), or if one of  your fields needs to be totally unique for some reason, you should probably use the following option instead.|
-|2|Existing `tt_content` columns can cover most of your needs, but there is one field (or *maybe* two) that can't be represented by something already available in `tt_content`|Use the `tt_content` fields for most of your fields, then extend the TCA with a new field in ext_tables.php and include it here. In this case you need to modify the database, but only with one field.|
-|3|You have multiple fields that can't be represented by an existing tt_content column.|Here you should use a flexform.|
+|-------------------|--------|--------|
+|Low|You only need a few fields in your CCE, and they are standard items like a link, a media element, a header, etc.|Use already-existing columns from generic `tt_content` rows to fit your needs. You can provide custom titles for them using showitem syntax. This saves you from needing to modify the database at all. <br><br> *Caveat:* If you're going to need to refer to one of the fields from another element (Another CCE, whatever), or if one of  your fields needs to be totally unique for some reason, you should probably use the following option instead.|
+|Middling|Existing `tt_content` columns can cover most of your needs, but there is one field (or *maybe* two) that can't be represented by something already available in `tt_content`|Use the `tt_content` fields for most of your fields, then extend the TCA with a new field in ext_tables.php and include it here. In this case you need to modify the database, but only with one field.|
+|High|You have multiple fields that can't be represented by an existing tt_content column.|Here you should use a flexform.|
 
 ### A few 'ui' examples
 

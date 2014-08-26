@@ -1,4 +1,4 @@
-## Monitor Tomcat7 daemon with monit
+## Monitor Tomcat7 daemon with Monit
 
 This how-to explains how to use Monit to make sure your Tomcat7 daemon doesn't quit on you
 

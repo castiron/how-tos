@@ -8,7 +8,6 @@ On ubuntu:
 
 ```
 apt-get install monit
-
 ```
 
 #### Setup a config file

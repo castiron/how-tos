@@ -6,7 +6,7 @@ The how-to walks you through installing Oracle Java, Tomcat 7, and Solr 4.8 on a
 
 ```
 iptables -A INPUT -p tcp -s 127.0.0.1 --dport 8080 -j ACCEPT
-iptables -A INPUT -p tcp -s 75.148.94.141 --dport 8080 -j ACCEPT
+iptables -A INPUT -p tcp -s 63.234.145.250 --dport 8080 -j ACCEPT
 /sbin/service iptables save
 ```
 

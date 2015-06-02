@@ -1,40 +1,14 @@
 # Style Guide
 
----
-## Ruby
+**See and use [.editorconfig](.editorconfig).**
 
-### Tabs or Spaces?
-
-* spaces
-
-### Camel or Underscore?
-
-* underscore
-
----
-## Coffeescript
-
-### Tabs or Spaces?
-
-* spaces
-
-### Camel or Underscore
-
-* underscore
+practice        | ruby       | coffee     | php      | sass
+---             | ---        | ---        | ---      | ---
+casing          | underscore | underscore | camel    | camel
+indent          | 2 spaces   | 2 spaces   | 4 spaces | ?
 
 
----
 ## PHP
-
-### Tabs or Spaces?
-
-* tabs
-
-### Camel or Underscore?
-
-* camel
-
-### Comments
 
 * For line comments, use `//` instead of `#`.
 * Methods should always have doc comments with at least `@param` and `@return` annotations.

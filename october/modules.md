@@ -28,7 +28,7 @@ Since these modules are under the `/modules` directory and not under the `/vendo
 
 #### [october/system](https://github.com/octoberrain/system)
 
-The system module is October's hub of functionality. It's sort of the lowest level of the "CMS". It handles things like serving cached files/assets, logging events, plugin management, configuration management, and the like. 
+The system module is October's hub of functionality. It's sort of the lowest level of the "CMS". It handles things like serving cached files/assets, logging events, plugin management, configuration management, and the like. A lot of important loading and setup happens in this module's `ServiceProvider.php` file.
 
 
 #### [october/backend](https://github.com/octoberrain/backend)
@@ -39,3 +39,17 @@ The backend module is basically the web application for the backend interface. N
 #### [october/cms](https://github.com/octoberrain/cms)
 
 The CMS module is what converts the work you've done in the backend interface into something the end-user will see. This means rendering pages, components, themes, etc. 
+
+---
+
+#### So how are modules included? Registered?
+
+The magic is in Laravel's service providers. Reading the Laravel documentation you'll find that providers are registered in the `/config/app.php` file. This file is still used the same way in October except October defers to the `/modules/system/providers.php` file to list its desired providers. The one provider it _does_ leave as configurable in the `app.php` file is the system module's service provider. But what about the backend, CMS, or other added modules? How are they registered? Well, the System module's service provider loads the other modules manually. I suspect this is to tightly control what's loaded and when. The system's service provider uses the  `cms.loadModules` configuration to figure out which modules to load, this is set in the `/config/cms.php` file. So to be loaded then, a module must:
+
+* be in the modules directory (usually `/modules`), 
+* must be added to the `cms.loadModules` configuration,
+* and contain a service provider at the root of the module (i.e. `/modules/mymodule/ServiceProvider.php`). 
+
+#### Why use a module rather than a plugin?
+
+Modules allow you to effect the fundamentals of October while plugins are more specifically to add features to the web app itself. For example, you might want to have a PageManager class somewhere and use that to list the navigation on every page. This sounds like you'd need both a module for the PageManager and a plugin for the component that lists the pages navigation. Having the PageManager in a module allows you to work more easily with the October framework. 

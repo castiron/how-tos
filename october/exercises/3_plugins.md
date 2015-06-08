@@ -77,4 +77,33 @@ All of this is perfectly customizable, but you get the basics.
 
 **Components**
 
-todo
+We already created the component above. That command doesn't register your component with the BE. You have to do that manually.
+
+```php
+public function registerComponents()
+{
+    return [
+        'Castiron\Blog\Posts\Post' => 'showPost'
+    ];
+}
+```
+
+Then you can just use it:
+
+```
+[showPost]
+==
+{% component showPost %}
+```
+
+What? That didn't work? 
+
+OH! Forgot the quotes.
+
+```
+[showPost]
+==
+{% component 'showPost' %}
+```
+
+That tag is basically twig/october saying, "Render the component with the name 'showPost'". Without the quotes, `showPost` is the instance of your component. You could do `{{ showDog.holla }}` to invoke the `holla` method on your component. Thus, `'showPost'` is a name while `showPost` is an instance. Got it? 

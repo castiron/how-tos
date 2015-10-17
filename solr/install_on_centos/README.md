@@ -70,21 +70,21 @@ alternatives --set jar /usr/java/jdk1.7.0_60/bin/jar
 ```
 cd /opt
 wget http://apache.mesi.com.ar/tomcat/tomcat-7/v7.0.55/bin/apache-tomcat-7.0.55.tar.gz
-tar -xzf apache-tomcat-7.0.55.tar.gz
-rm apache-tomcat-7.0.55.tar.gz
-mv apache-tomcat-7.0.55 /var/lib/tomcat7
+tar -xzf apache-tomcat-7.0.60.tar.gz
+rm apache-tomcat-7.0.60.tar.gz
+mv apache-tomcat-7.0.60 /var/lib/tomcat7
 ```
 
 #### Get Solr logging dependencies
 
 ```
 cd /opt
-curl -L http://mirror.metrocast.net/apache//commons/logging/binaries/commons-logging-1.1.3-bin.tar.gz | tar -xzv
-mv commons-logging-1.1.3 /usr/local/src/
-curl -L http://www.slf4j.org/dist/slf4j-1.7.7.tar.gz | tar -xzv
-mv slf4j-1.7.7 /usr/local/src/
-cp /usr/local/src/commons-logging-1.1.3/commons-logging-*.jar /var/lib/tomcat7/lib/
-cp /usr/local/src/slf4j-1.7.7/slf4j-*.jar /var/lib/tomcat7/lib/
+curl -L http://mirror.metrocast.net/apache//commons/logging/binaries/commons-logging-1.2-bin.tar.gz | tar -xzv
+mv commons-logging-1.2 /usr/local/src/
+curl -L http://www.slf4j.org/dist/slf4j-1.7.12.tar.gz | tar -xzv
+mv slf4j-1.7.12 /usr/local/src/
+cp /usr/local/src/commons-logging-1.2/commons-logging-*.jar /var/lib/tomcat7/lib/
+cp /usr/local/src/slf4j-1.7.12/slf4j-*.jar /var/lib/tomcat7/lib/
 rm -rf /var/lib/tomcat7/lib/slf4j-android-*.jar
 ```
 
@@ -141,6 +141,11 @@ cd /var/lib/tomcat7/webapps/solr/WEB-INF
 mv web.xml web.xml.off
 wget https://raw.githubusercontent.com/castiron/dockers/master/typo3-solr/config/web.xml
 chown tomcat:tomcat web.xml
+```
+
+#### Remove a conflicting logging-related jar that came with tomcat
+```
+rm /var/lib/tomcat7/lib/jcl-over-slf4j*.jar
 ```
 
 #### Start tomcat7

@@ -17,7 +17,7 @@ indent_size = 2
 indent_style = space
 indent_size = 2
 
-[**.{rb}]
+[**.{rb,pp}]
 indent_style = space
 indent_size = 2
 

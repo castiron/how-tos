@@ -64,7 +64,7 @@ sudo apt-get install tomcat7
 ```
 #### Get Solr logging dependencies
 
-lib folder doesn't exist after install from repo—so create it!
+if lib folder doesn't exist after install from repo, create it!
 
 ```
 mkdir /var/lib/tomcat7/lib
@@ -72,12 +72,12 @@ mkdir /var/lib/tomcat7/lib
 
 ```
 cd /opt
-curl -L http://mirror.metrocast.net/apache//commons/logging/binaries/commons-logging-1.1.3-bin.tar.gz | tar -xzv
-mv commons-logging-1.1.3 /usr/local/src/
-curl -L http://www.slf4j.org/dist/slf4j-1.7.7.tar.gz | tar -xzv
-mv slf4j-1.7.7 /usr/local/src/
-cp /usr/local/src/commons-logging-1.1.3/commons-logging-*.jar /var/lib/tomcat7/lib/
-cp /usr/local/src/slf4j-1.7.7/slf4j-*.jar /var/lib/tomcat7/lib/
+curl -L http://mirror.metrocast.net/apache//commons/logging/binaries/commons-logging-1.2-bin.tar.gz | tar -xzv
+mv commons-logging-1.2 /usr/local/src/
+curl -L http://www.slf4j.org/dist/slf4j-1.7.19.tar.gz | tar -xzv
+mv slf4j-1.7.19 /usr/local/src/
+cp /usr/local/src/commons-logging-1.2/commons-logging-*.jar /var/lib/tomcat7/lib/
+cp /usr/local/src/slf4j-1.7.19/slf4j-*.jar /var/lib/tomcat7/lib/
 rm -rf /var/lib/tomcat7/lib/slf4j-android-*.jar
 ```
 
@@ -108,6 +108,12 @@ chown -R tomcat7:tomcat7 /home/solr
 ```
 service tomcat7 start
 service tomcat7 stop
+```
+
+...if you run into problemos like '...policy.d/*.policy no such file' try something like this:
+```
+cd /var/lib/tomcat7/conf
+ln -s /etc/tomcat7/policy.d
 ```
 
 #### .d zest

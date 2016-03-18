@@ -141,3 +141,22 @@ wget https://raw.githubusercontent.com/castiron/dockers/master/typo3-solr/config
 ```
 service tomcat7 start
 ```
+
+### Slow startup?
+
+If you are using Java 7, and you start tomcat and it take like 10 minutes for the solr application to become available, your system may suffer from lack of entropy. This might be fixed by explicitly telling Java to use `/dev/urandom` instead of `/dev/random` to generate seeds when starting up. To do that:
+
+Edit `/usr/lib/jvm/java-7-oracle/jre/lib/security/java.security` (or whatever your main `java.security` is) and change
+
+```
+securerandom.source=file:/dev/urandom
+```
+to
+```
+securerandom.source=file:/dev/./urandom
+```
+Apparently Java tries to be smart and use `/dev/random` even if `/dev/urandom` is specified there. You have to trick it by using the lil dot.
+
+For more info see:
+http://serverfault.com/questions/655616/tomcat7-hangs-on-deploying-apps
+http://marc.info/?l=tomcat-user&m=132769606728228&w=2

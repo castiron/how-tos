@@ -54,10 +54,10 @@ sudo apt-get install oracle-java7-installer
 
 ```
 cd /opt
-wget http://apache.mesi.com.ar/tomcat/tomcat-7/v7.0.73/bin/apache-tomcat-7.0.73.tar.gz
-tar -xzf apache-tomcat-7.0.73.tar.gz
-rm apache-tomcat-7.0.73.tar.gz
-mv apache-tomcat-7.0.73 /var/lib/tomcat7
+wget http://apache.mesi.com.ar/tomcat/tomcat-7/v7.0.75/bin/apache-tomcat-7.0.75.tar.gz
+tar -xzf apache-tomcat-7.0.75.tar.gz
+rm apache-tomcat-7.0.75.tar.gz
+mv apache-tomcat-7.0.75 /var/lib/tomcat7
 ```
 ```
 sudo apt-get install tomcat7

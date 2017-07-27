@@ -52,7 +52,11 @@ git commit -m 'setting DB confs'
 
 Now push your repo to your remote, then set up a boxen project pointed at your project. Run boxen to get your project Nginx/PHP config in place. Then you should be able to see the site at:
 
-myproject.dev
+`myproject.dev`
+
+When you're all done, make a `www` folder in the root of your october project for nginx to look at :eyeglasses:. 
+`php artisan october:mirror www`
+
 
 #### Quick/hackstart
 

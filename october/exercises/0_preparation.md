@@ -72,3 +72,48 @@ php artisan serve
 ```
 
 You could then check out the [frontend](http://localhost:8000/) and [backend](http://localhost:8000/backend) (creds are `admin`/`admin`).
+
+## Make sure you have a sane .gitignore
+
+```.gitignore
+# Packages
+/vendor
+/node_modules
+
+# Env
+/.env
+
+# Logs
+*.log
+
+# IDE
+/.idea
+/idea
+
+# Ignore everything in the public dir with some whitelist
+/www/*
+!/www/favicon.ico
+!/www/index.php
+!/www/modules
+!/www/plugins
+!/www/storage
+!/www/themes
+
+# Ignore everything these dirs with some whitelisting if necessary.
+# Most of this will be managed by Composer
+/modules/*
+/plugins/*
+!/plugins/castiron/my-project-plugin
+
+```
+
+## Add softlinks for the `www` directory
+
+```bash
+cd www
+ln -s ../index.php
+ln -s ../modules
+ln -s ../plugins
+ln -s ../storage
+ln -s ../themes
+```

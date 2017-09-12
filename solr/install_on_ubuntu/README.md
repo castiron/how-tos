@@ -44,12 +44,38 @@ sudo add-apt-repository ppa:webupd8team/java
 ```
 
 #### Install Java 
-
+Note: See next section _(Oops Java failed to install)_ if Java indeed failed to install
 ```
 sudo add-apt-repository ppa:webupd8team/java
 sudo apt-get update
 sudo apt-get install oracle-java7-installer
 ```
+
+#### Oops Java failed to install
+
+If you see output like the following:
+```
+Location: http://download.oracle.com/otn-pub/java/jdk/7u80-b15/jdk-7u80-linux-x64.tar.gz?AuthParam=1505233415_2df2c1394b73668f723a2612f9d03174 [following]
+--2017-09-12 16:21:35--  http://download.oracle.com/otn-pub/java/jdk/7u80-b15/jdk-7u80-linux-x64.tar.gz?AuthParam=1505233415_2df2c1394b73668f723a2612f9d03174
+Connecting to download.oracle.com (download.oracle.com)|207.108.220.152|:80... connected.
+HTTP request sent, awaiting response... 404 Not Found
+2017-09-12 16:21:36 ERROR 404: Not Found.
+
+download failed
+Oracle JDK 7 is NOT installed.
+```
+
+You'll need to manually download the JDK .tar.gz as Oracle now requires an account (free) to download. 
+
+Once you have the JDK on your local machine, upload to the target host and move it where the installer expects to find it.
+
+```
+scp jdk-7u80-linux-x64.tar.gz user@host.cicnode.com:~/
+mv jdk-7u80-linux-x64.tar.gz /var/cache/oracle-jdk7-installer/
+apt-get install oracle-java7-installer
+```
+
+
 #### Download Tomcat7
 
 ```
